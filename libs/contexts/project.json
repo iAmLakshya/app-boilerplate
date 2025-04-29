@@ -1,0 +1,9 @@
+{
+  "name": "contexts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "contexts/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project contexts --web",
+  "targets": {}
+}

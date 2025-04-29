@@ -15,11 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app/libs": ["libs/src/index.ts"],
-      "@app/types": ["libs/types/src/index.ts"],
-      "@app/ui": ["libs/ui/src/index.tsx"],
-      "@app/ui/*": ["libs/ui/src/*"],
-      "@app/utils": ["libs/utils/src/index.ts"]
+      "@/components/*": ["libs/components/src/*"],
+      "@/contexts/*": ["libs/contexts/src/*"],
+      "@/hooks": ["libs/hooks/src/index.ts"],
+      "@/libs": ["libs/src/index.ts"],
+      "@/types": ["libs/types/src/index.ts"],
+      "@/ui": ["libs/ui/src/"],
+      "@/ui/*": ["libs/ui/src/*"],
+      "@/utils": ["libs/utils/src/index.ts"],
+      "@/utils/*": ["libs/utils/src/*"],
+      "@/constants": ["libs/constants/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
