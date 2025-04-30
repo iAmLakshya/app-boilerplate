@@ -31,8 +31,13 @@ export class UsersService {
       email: newUser.email,
       password: Math.random().toString(36),
       phoneNumber: newUser.phoneNumber,
-      displayName:
-        `${newUser.name.first} ${newUser.name?.middle} ${newUser.name.last}`.trim(),
+      displayName: [
+        `${newUser.name.first || ''}`,
+        `${newUser.name?.middle || ''}`,
+        `${newUser.name.last || ''}`,
+      ]
+        .filter((item) => item)
+        .join(' '),
     });
 
     return newUser;
