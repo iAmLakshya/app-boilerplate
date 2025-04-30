@@ -48,6 +48,7 @@ export const AuthProvider = ({
     // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth(), (currentUser) => {
       setUser(currentUser);
+      // TODO: Fetch user data from the server (/api/v1/me)
       setLoading(false);
       console.debug('Auth state changed, user:', currentUser?.uid || 'none');
     });

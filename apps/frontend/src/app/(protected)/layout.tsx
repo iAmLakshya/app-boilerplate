@@ -1,4 +1,5 @@
 import { ProtectedPage } from '@/components/protected-page';
+import { DashboardLayout } from '@/components/dashboard/dashboard-layout';
 export default function ProtectedPageLayout({
   children,
 }: {
@@ -6,8 +7,7 @@ export default function ProtectedPageLayout({
 }) {
   return (
     <ProtectedPage>
-      {/* <DashboardLayout>{children}</DashboardLayout> */}
-      {children}
+      <DashboardLayout>{children}</DashboardLayout>
     </ProtectedPage>
   );
 }
