@@ -2,6 +2,7 @@ import { GalleryVerticalEnd } from 'lucide-react';
 
 import { UserAuthForm } from '@/components/auth/auth-form';
 import { cn } from '@/utils';
+import { Suspense } from 'react';
 
 export default function LoginPage() {
   return (
@@ -32,7 +33,9 @@ export default function LoginPage() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-xs">
-            <UserAuthForm />
+            <Suspense>
+              <UserAuthForm />
+            </Suspense>
           </div>
         </div>
       </div>
