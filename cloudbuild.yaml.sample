@@ -1,0 +1,32 @@
+steps:
+  # Build and push using Kaniko
+  - name: 'gcr.io/kaniko-project/executor:latest'
+    args:
+      - --dockerfile=Dockerfile
+      - --build-arg=SERVICE_NAME=${_IMAGE_NAME}
+      - --context=.
+      - --cache=true
+      - --cache-ttl=168h  # Cache TTL set to 1 week
+      - --destination=${_GAR_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE_NAME}:latest
+      - --cache-repo=${_GAR_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/cache
+      - --snapshot-mode=redo
+      - --use-new-run  # Enables better layer caching
+      - --compressed-caching=true
+      - --reproducible  # Ensures consistent image builds
+      - --cache-copy-layers=true
+      - --skip-unused-stages=true  # Skip building unused stages
+      - --single-snapshot  # Reduces the number of intermediate layers
+    id: 'build-and-push'
+    env:
+      - 'DOCKER_CONFIG=/kaniko/.docker/'
+# images:
+#   - '${_GAR_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE_NAME}:latest'
+# Substitution variables
+substitutions:
+  _GAR_LOCATION: '<GAR_LOCATION'  # Default GAR location
+  _REPOSITORY: '<REPO_NAME>'   # Default repository name
+  # _IMAGE_NAME: 'my-app'         # Default image name
+  # _TAG: 'v1.0.0'               # Default tag
+
+# Configure the timeout (optional)
+timeout: '1800s'
