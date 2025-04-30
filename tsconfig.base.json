@@ -18,6 +18,7 @@
       "@/components/*": ["libs/components/src/*"],
       "@/contexts/*": ["libs/contexts/src/*"],
       "@/hooks": ["libs/hooks/src/index.ts"],
+      "@/hooks/*": ["libs/hooks/src/*"],
       "@/libs": ["libs/src/index.ts"],
       "@/types": ["libs/types/src/index.ts"],
       "@/ui": ["libs/ui/src/"],
