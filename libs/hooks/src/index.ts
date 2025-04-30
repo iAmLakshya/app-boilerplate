@@ -1,1 +1,1 @@
-export * from './lib/use-mobile.hook';
+export * from './use-mobile';
